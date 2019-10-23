@@ -1,22 +1,25 @@
 $( "document" ).ready(function() {
 
-$("#button").click(function(){
+    $("#button").click(function(){
     var inputValue = $('.input').val();
-$(".output").text(inputValue)
-    console.log(inputValue)
+    var checkVowel = checkVowel(inputValue);
+    $(".output").text(inputValue)
+     console.log(checkVowel)
+
 
 
 function checkVowel (str){
+
     var firstLetter= str [0];
     var vowels = ['a','e','i','o','u'];
 
-    if (vowels.include(firstLetter)){
-        return 'starts with vowel';
+    if (vowels.includes(firstLetter)){
+        return (inputValue[0]+ "ay");
+
     }
-    return 'starts with consonant';
+    return (inputValue.slice(1)+inputValue[0]+"ay");
     }
+    $(".output").text(checkVowel)
 })
 
-})
-
-
+});
